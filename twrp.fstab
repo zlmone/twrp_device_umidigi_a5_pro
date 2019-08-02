@@ -33,5 +33,6 @@
 /cache		ext4	/dev/block/platform/bootdevice/by-name/cache
 /data		ext4	/dev/block/platform/bootdevice/by-name/userdata		flags=encryptable=/dev/block/platform/bootdevice/by-name/metadata
 /vendor     ext4    /dev/block/platform/bootdevice/by-name/vendor
+/vendor_image   emmc    /dev/block/platform/bootdevice/by-name/vendor              flags=display="Vendor_image";flashimg=1;backup=1
 /external_sd	auto	/dev/block/mmcblk1p1	/dev/block/mmcblk1	    flags=display="External SDcard";storage;wipeingui;removable;backup=0
-/usbotg		auto    /dev/block/sda1		/dev/block/sda                  flags=display="Usb-Otg";storage;removable;backup=0
+/usbotg		auto    /dev/block/sda1		/dev/block/sda                  flags=display="Usb-Otg";storage;removable;backup=0;fsflags="utf8"
