@@ -70,8 +70,7 @@ TARGET_HW_DISK_ENCRYPTION := true
 ########
 
 # Resolution
-TW_DEVICE_VERSION := by Hadenix
-TW_THEME := portrait_hdpi_notch
+TW_THEME := portrait_hdpi
 # DEVICE_RESOLUTION := 1080x2280 (deprecated)
 DEVICE_SCREEN_WIDTH := 1080
 DEVICE_SCREEN_HEIGHT := 2280
