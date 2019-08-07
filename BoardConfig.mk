@@ -28,6 +28,7 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += veritykeyid=id:7e4333f9bba00adfe0ede979e28ed1920492b40f
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(LOCAL_PATH)/prebuilt/dt
+# Make boot image arguments
 BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --ramdisk_offset 0x14f88000 --second_offset 0x00f00000 --tags_offset 0x13f88000
 BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DTB)
 
