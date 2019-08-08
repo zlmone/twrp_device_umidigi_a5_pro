@@ -88,6 +88,7 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 
 # Resolution
 HAVE_SELINUX := true
+TW_DEVICE_VERSION := by Hadenix
 TW_THEME := portrait_hdpi
 # DEVICE_RESOLUTION := 1080x2280 (deprecated)
 DEVICE_SCREEN_WIDTH := 1080
