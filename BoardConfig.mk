@@ -86,6 +86,9 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 # TWRP #
 ########
 
+# Excludes
+TW_EXCLUDE_TWRPAPP := true
+
 # Resolution
 HAVE_SELINUX := true
 TW_DEVICE_VERSION := by Hadenix
