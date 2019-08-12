@@ -1,5 +1,5 @@
 # Device path
-LOCAL_PATH := device/umidigi/a5_pro
+LOCAL_PATH := device/umidigi/a5_pro_e
 
 # Architecture
 TARGET_ARCH := arm64
