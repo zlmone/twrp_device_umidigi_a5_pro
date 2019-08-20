@@ -94,7 +94,7 @@ TW_EXCLUDE_TWRPAPP := true
 
 # Resolution
 HAVE_SELINUX := true
-TW_DEVICE_VERSION := by Hadenix
+TW_DEVICE_VERSION := 0 by Hadenix
 TW_THEME := portrait_hdpi
 # DEVICE_RESOLUTION := 1080x2280 (deprecated)
 DEVICE_SCREEN_WIDTH := 1080
