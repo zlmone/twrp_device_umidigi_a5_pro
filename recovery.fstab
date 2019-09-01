@@ -1,5 +1,5 @@
 #
-# UMIDIGI A5 Pro E
+# UMIDIGI A5 Pro E (breeze)
 #
 /system         ext4  /dev/block/platform/bootdevice/by-name/system    flags=backup=0
 /system_image	emmc  /dev/block/platform/bootdevice/by-name/system   flags=display="system_image";backup=1;flashimg=1

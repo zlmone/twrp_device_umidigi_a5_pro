@@ -1,4 +1,4 @@
-# TWRP device tree for UMIDIGI A5 Pro E
+# TWRP device tree for UMIDIGI A5 Pro E (breeze)
 
 ## About Device
 
@@ -27,5 +27,5 @@ More Feature | Aluminum Body, Front Glass Body Design, LTE Cat7 300 Mbps Downloa
 ## Build Instructions
 ```sh
 . build/envsetup.sh
-lunch omni_a5_pro_e-eng
+lunch omni_breeze-eng
 mka recoveryimage
