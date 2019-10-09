@@ -8,11 +8,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions
+PRODUCT_RELEASE_NAME := Breeze
 PRODUCT_BRAND := UMIDIGI
 PRODUCT_DEVICE := breeze
 PRODUCT_MANUFACTURER := UMIDIGI
-PRODUCT_MODEL := breeze
+PRODUCT_MODEL := A5 PRO
 PRODUCT_NAME := omni_breeze
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT="UMIDIGI/A5_Pro/A5_Pro:9/PPR1.180610.011/1559618636:user/release-keys" \
+    PRIVATE_BUILD_DESC="A5_Pro-user 9 PPR1.180610.011 1559618636 release-keys"
 
 # enable stock zip packages flash
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -24,3 +29,5 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.adb.secure=0 \
     ro.debuggable=1 \
     ro.allow.mock.location=0
+
+

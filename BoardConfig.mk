@@ -27,7 +27,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := mt6763
 
 # Kernel
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += veritykeyid=id:7e4333f9bba00adfe0ede979e28ed1920492b40f
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_BASE := 0x40078000
@@ -43,6 +43,9 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset 
 
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 BOARD_PREBUILT_DTBOIMAGE := $(LOCAL_PATH)/prebuilt/recovery_dtbo.img
+
+#system.prop
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 #Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
@@ -66,7 +69,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/twrp.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
@@ -80,8 +83,7 @@ BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
-TW_ALLOW_PARTITION_SDCARD := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply/battery"
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
@@ -93,8 +95,7 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 TW_EXCLUDE_TWRPAPP := true
 
 # Resolution
-HAVE_SELINUX := true
-TW_DEVICE_VERSION := 0 by Hadenix
+TW_DEVICE_VERSION := 21 by Hadenix
 TW_THEME := portrait_hdpi
 # DEVICE_RESOLUTION := 1080x2280 (deprecated)
 DEVICE_SCREEN_WIDTH := 1080
@@ -112,6 +113,10 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_USE_TOOLBOX := true
 
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
@@ -119,22 +124,18 @@ TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
 TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,barrier=0,data=ordered"
 
-# Debug
-TWRP_INCLUDE_LOGCAT := true
-
 # Storage
 TW_HAS_MTP := true
 TW_MTP_DEVICE := /dev/mtp_usb
-TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_NO_REBOOT_BOOTLOADER := false
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_NO_USB_STORAGE := false
-TARGET_USES_LOGD := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-
+HAVE_SELINUX := true
 
 # Languages
 TW_EXTRA_LANGUAGES := true
