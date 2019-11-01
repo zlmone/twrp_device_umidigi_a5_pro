@@ -20,4 +20,5 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo omni_breeze-eng
+add_lunch_combo omni_A5_Pro-eng
+add_lunch_combo omni_A5_Pro-userdebug

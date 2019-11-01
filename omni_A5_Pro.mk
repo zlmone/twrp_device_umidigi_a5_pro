@@ -1,6 +1,3 @@
-# Release name
-PRODUCT_RELEASE_NAME := breeze
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -10,10 +7,10 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_RELEASE_NAME := Breeze
 PRODUCT_BRAND := UMIDIGI
-PRODUCT_DEVICE := breeze
+PRODUCT_DEVICE := A5_Pro
 PRODUCT_MANUFACTURER := UMIDIGI
-PRODUCT_MODEL := A5 PRO
-PRODUCT_NAME := omni_breeze
+PRODUCT_MODEL := A5_Pro
+PRODUCT_NAME := omni_A5_Pro
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT="UMIDIGI/A5_Pro/A5_Pro:9/PPR1.180610.011/1559618636:user/release-keys" \

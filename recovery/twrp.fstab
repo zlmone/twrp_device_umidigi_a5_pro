@@ -1,16 +1,16 @@
 #
 # UMIDIGI A5 Pro (breeze)
 #
-/system         ext4  /dev/block/platform/bootdevice/by-name/system    flags=backup=0
+/system         ext4  /dev/block/platform/bootdevice/by-name/system    flags=backup=1;storage
 /system_image	emmc  /dev/block/platform/bootdevice/by-name/system   flags=display="system_image";backup=1;flashimg=1
-/vendor         ext4  /dev/block/platform/bootdevice/by-name/vendor     flags=backup=0
-/vendor_image	emmc  /dev/block/platform/bootdevice/by-name/vendor   flags=display="vendor_image";wipeingui;backup=1;flashimg=1  
+/vendor         ext4  /dev/block/platform/bootdevice/by-name/vendor     flags=backup=1;wipeingui;storage
+/vendor_image	emmc  /dev/block/platform/bootdevice/by-name/vendor   flags=display="vendor_image";backup=1;flashimg=1  
 /data           ext4  /dev/block/platform/bootdevice/by-name/userdata     flags=encryptable=/dev/block/platform/bootdevice/by-name/metadata
-/cache          ext4  /dev/block/platform/bootdevice/by-name/cache  	flags=display="cache"
-/protect_f      ext4  /dev/block/platform/bootdevice/by-name/protect1    
-/protect_s      ext4  /dev/block/platform/bootdevice/by-name/protect2     
+/cache          ext4  /dev/block/platform/bootdevice/by-name/cache  	flags=display="cache";backup=1
+/protect_f      ext4  /dev/block/platform/bootdevice/by-name/protect1    flags=backup=1
+/protect_s      ext4  /dev/block/platform/bootdevice/by-name/protect2     flags=backup=1
 /nvdata         ext4  /dev/block/platform/bootdevice/by-name/nvdata      flags=backup=1 
-/nvcfg          ext4  /dev/block/platform/bootdevice/by-name/nvcfg      
+/nvcfg          ext4  /dev/block/platform/bootdevice/by-name/nvcfg      flags=backup=1
 /persistent     emmc  /dev/block/platform/bootdevice/by-name/frp        flags=display="frp";backup=1 
 /nvram          emmc  /dev/block/platform/bootdevice/by-name/nvram     flags=display="nvram";backup=1;flashimg=1
 /proinfo        emmc  /dev/block/platform/bootdevice/by-name/proinfo    flags=display="proinfo";backup=1
@@ -40,4 +40,3 @@
 
 /external_sd	auto	/dev/block/mmcblk1p1	/dev/block/mmcblk1	flags=display="External SDcard";storage;wipeingui;removable;backup=0
 /usbotg		auto    /dev/block/sda1		/dev/block/sda		flags=display="USB-OTG";storage;wipeingui;removable;backup=0
-
