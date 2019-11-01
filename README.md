@@ -26,7 +26,5 @@ More Feature | Aluminum Body, Front Glass Body Design, LTE Cat7 300 Mbps Downloa
 
 ## Build Instructions
 ```sh
-. build/envsetup.sh && lunch
-omni_A5_Pro-eng
-omni_A5_Pro-userdebug
+. build/envsetup.sh && lunch omni_A5_Pro-eng
 mka recoveryimage
