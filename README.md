@@ -1,10 +1,8 @@
-# TWRP device tree for UMIDIGI A5 Pro(breeze)
+UMIDIGI A5 Pro (codename: `breeze`) Gets under budget level wing from UMIDIGI.
 
-## About Device
+`breeze` released in 2019.
 
-![UMIDIGI A5 Pro](https://sun9-57.userapi.com/c856032/v856032328/f88c8/G3bajBsEU3g.jpg)
-
-### Specifications
+### Device specifications
 
 Component Type | Details
 -------:|:-------------------------
@@ -21,10 +19,6 @@ Display | 6.3-inches IPS FHD+ Display (1080 x 2280 Pixels) 24-bit
 Camera | 16MP + 8MP + 5MP with Dual-LED and AF Triple Rear Camera | 16MP  Front Camera
 More Feature | Aluminum Body, Front Glass Body Design, LTE Cat7 300 Mbps Download, 100 Mbps Upload, HSPA+, Computer Sync, OTA Sync, VoLTE, Rounded Edges, OTG Support, Secure and Fast Fingerprint Sensor, 5V/2A Charger Output Power.
 
-**This device tree can be used to build twrp for UMIDIGI A5 Pro**
+## Device Picture
 
-
-## Build Instructions
-```sh
-. build/envsetup.sh && lunch omni_A5_Pro-eng
-mka recoveryimage
+![UMIDIGI A5 Pro](https://sun9-57.userapi.com/c856032/v856032328/f88c8/G3bajBsEU3g.jpg)
