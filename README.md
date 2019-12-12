@@ -21,4 +21,4 @@ More Feature | Aluminum Body, Front Glass Body Design, LTE Cat7 300 Mbps Downloa
 
 ## Device Picture
 
-![UMIDIGI A5 Pro](https://sun9-57.userapi.com/c856032/v856032328/f88c8/G3bajBsEU3g.jpg)
+![UMIDIGI A5 Pro](https://sun9-32.userapi.com/c857216/v857216295/8333d/Frdz2YxuHf0.jpg)
