@@ -16,7 +16,7 @@
 
 # Basics & Paths
 BOARD_VENDOR := umidigi
-DEVICE_PATH := device/umidigi/A5_Pro
+LOCAL_PATH := device/umidigi/A5_Pro
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mt6763
@@ -39,6 +39,7 @@ TARGET_2ND_CPU_VARIANT := armv8-a
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Rules
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_HEADER_SIZE := 1648
 BOARD_KERNEL_PAGESIZE := 2048
@@ -50,8 +51,6 @@ BOARD_SECOND_OFFSET := 0x00e88000
 BOARD_TAGS_OFFSET := 0x13f88000
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --second_offset $(BOARD_SECOND_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET) --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # DTBO Rules
 BOARD_RECOVERY_DTBO_SIZE := 42169
@@ -102,6 +101,7 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 TW_EXCLUDE_TWRPAPP := true
 
 # Resolution
+TW_CUSTOM_THEME := device/umidigi/A5_Pro/twres
 TW_DEVICE_VERSION := 43 by Hadenix
 TW_THEME := portrait_hdpi
 DEVICE_SCREEN_WIDTH := 1080
