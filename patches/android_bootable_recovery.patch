@@ -1,0 +1,82 @@
+From b92f6c2037aa631352e327590f37c5e52e03cd07 Mon Sep 17 00:00:00 2001
+From: mauronofrio <poronofrio@gmail.com>
+Date: Wed, 20 Nov 2019 07:38:16 +0000
+Subject: [PATCH] Add a flag to skip compatibility.zip check
+
+This only a placebo, actually the real problem is that in TWRP some
+device doesn't properly set ro.boot.avb_version or some others avb flags.
+I think this should be merged to allow people to make faster working TWRP.
+
+To enable TW_SKIP_COMPATIBILITY_CHECK should be setted in boarconfig.mk:
+TW_SKIP_COMPATIBILITY_CHECK := true
+
+Change-Id: I9536b294d36f239cbed89346335c416a430969af
+
+Signed-off-by: SahilSonar <sss.sonar2003@gmail.com>
+---
+ data.cpp      | 6 ++++++
+ install.cpp   | 3 +--
+ twinstall.cpp | 3 +--
+ variables.h   | 1 +
+ 4 files changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/data.cpp b/data.cpp
+index 9733537..8194411 100755
+--- a/data.cpp
++++ b/data.cpp
+@@ -812,6 +812,12 @@ void DataManager::SetDefaultValues()
+ #else
+   mConst.SetValue(TW_HAS_INJECTTWRP, "0");
+ #endif
++#ifdef TW_SKIP_COMPATIBILITY_CHECK
++	printf("TW_SKIP_COMPATIBILITY_CHECK := true\n");
++	mPersist.SetValue(TW_SKIP_COMPATIBILITY_CHECK, "1");
++#else
++	mPersist.SetValue(TW_SKIP_COMPATIBILITY_CHECK, "0");
++#endif
+ #ifdef TW_HAS_DOWNLOAD_MODE
+   printf("TW_HAS_DOWNLOAD_MODE := true\n");
+   mConst.SetValue(TW_DOWNLOAD_MODE, "1");
+diff --git a/install.cpp b/install.cpp
+index 92a03ca..51b3f6c 100644
+--- a/install.cpp
++++ b/install.cpp
+@@ -722,8 +722,7 @@ static int really_install_package(const std::string & path, bool * wipe_cache,
+     }
+
+   // Additionally verify the compatibility of the package.
+-  if (!verify_package_compatibility(zip))
+-    {
++  if (DataManager::GetIntValue(TW_SKIP_COMPATIBILITY_CHECK) == 0 && !verify_package_compatibility(zip)) {
+       log_buffer->
+ 	push_back(android::base::
+ 		  StringPrintf("error: %d", kPackageCompatibilityFailure));
+diff --git a/twinstall.cpp b/twinstall.cpp
+index 679b35a..4561db3 100644
+--- a/twinstall.cpp
++++ b/twinstall.cpp
+@@ -956,8 +956,7 @@ int TWinstall_zip(const char *path, int *wipe_cache)
+     {
+       LOGINFO("Update binary zip\n");
+       // Additionally verify the compatibility of the package.
+-      if (!verify_package_compatibility(&Zip))
+-	{
++		if (DataManager::GetIntValue(TW_SKIP_COMPATIBILITY_CHECK) == 0 && !verify_package_compatibility(&Zip)) {
+ 	  gui_err("zip_compatible_err=Zip Treble compatibility error!");
+ 	  Zip.Close();
+ #ifdef USE_MINZIP
+diff --git a/variables.h b/variables.h
+index 44e1bc9..bdb3798 100644
+--- a/variables.h
++++ b/variables.h
+@@ -240,6 +240,7 @@ static int Fox_Current_ROM_IsMIUI = 0; // is the currently installed ROM a MIUI
+ // #define TW_ALWAYS_RMRF              "tw_always_rmrf"
+
+ #define TW_SHOW_DUMLOCK             "tw_show_dumlock"
++#define TW_SKIP_COMPATIBILITY_CHECK "tw_skip_compatibility_check"
+ #define TW_HAS_INJECTTWRP           "tw_has_injecttwrp"
+ #define TW_INJECT_AFTER_ZIP         "tw_inject_after_zip"
+ #define TW_HAS_DATADATA             "tw_has_datadata"
+-- 
+2.7.4
+

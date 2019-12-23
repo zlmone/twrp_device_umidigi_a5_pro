@@ -1,30 +1,35 @@
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+#
+# Copyright (C) 2019 Potato Open Sauce Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# Release name
+PRODUCT_RELEASE_NAME := breeze
+
+$(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_RELEASE_NAME := Breeze
-PRODUCT_BRAND := UMIDIGI
-PRODUCT_DEVICE := A5_Pro
-PRODUCT_MANUFACTURER := UMIDIGI
-PRODUCT_MODEL := A5_Pro
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := breeze
 PRODUCT_NAME := omni_A5_Pro
+PRODUCT_BRAND := UMIDIGI
+PRODUCT_MODEL := A5_Pro
+PRODUCT_MANUFACTURER := UMIDIGI
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="UMIDIGI/A5_Pro/A5_Pro:9/PPR1.180610.011/1559618636:user/release-keys" \
-    PRIVATE_BUILD_DESC="A5_Pro-user 9 PPR1.180610.011 1559618636 release-keys"
-
-# enable stock zip packages flash
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.treble.enabled=true \
-    persist.sys.usb.config=mtp \
-    persist.service.adb.enable=1 \
-    persist.service.debuggable=1 \
-    ro.secure=1 \
-    ro.adb.secure=0 \
-    ro.debuggable=1 \
-    ro.allow.mock.location=0
-
+# HACK: Set vendor patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.build.security_patch=2099-12-31
 
