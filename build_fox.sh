@@ -10,22 +10,22 @@ cd ../..
 
 # configure some default settings for the build
 Default_Settings() {
-  export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+  	export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export TARGET_ARCH="arm64"
 	export TW_DEFAULT_LANGUAGE="en"
 	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER="1"
 	export LC_ALL="C"
 	export USE_CCACHE="1"
-  export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES="1"
+  	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES="1"
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE="1"
 	export OF_OTA_RES_DECRYPT="1"
 	export FOX_REPLACE_BUSYBOX_PS="1"
 	export FOX_USE_BASH_SHELL="1"
 	export FOX_USE_NANO_EDITOR="1"
-  export OF_STATUS_INDENT_LEFT="48"
-  export OF_STATUS_INDENT_RIGHT="48"
-  export OF_SCREEN_H="2340"
+  	export OF_STATUS_INDENT_LEFT="48"
+  	export OF_STATUS_INDENT_RIGHT="48"
+  	export OF_SCREEN_H="2280"
 
 #       export OF_DONT_PATCH_ON_FRESH_INSTALLATION="1"
 #      	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
@@ -50,7 +50,7 @@ do_build() {
   Default_Settings
   
   # use ccache ??
-  [ "$USE_CCACHE" = "1" ] && ccache -M 75G
+  [ "$USE_CCACHE" = "1" ] && ccache -M 20G
 
   # compile it
   . build/envsetup.sh
